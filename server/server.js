@@ -11,7 +11,7 @@ const User = require("./user");
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 
 mongoose.connect(
-  "mongodb+srv://{Place Your Username Here!}:{Place Your Password Here!}@cluster0-q9g9s.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb://127.0.0.1:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -23,7 +23,7 @@ mongoose.connect(
 
 // Middleware
 app.use(express.json());
-app.use(urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: "http://localhost:3000", // <-- location of the react app were connecting to
@@ -41,7 +41,6 @@ app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig")(passport);
-
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
 // Routes
@@ -53,11 +52,11 @@ app.post("/login", (req, res, next) => {
       req.logIn(user, (err) => {
         if (err) throw err;
         res.send("Successfully Authenticated");
-        console.log(req.user);
       });
     }
   })(req, res, next);
 });
+
 app.post("/register", (req, res) => {
   User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
@@ -74,6 +73,7 @@ app.post("/register", (req, res) => {
     }
   });
 });
+
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
