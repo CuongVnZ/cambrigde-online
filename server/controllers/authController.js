@@ -1,5 +1,5 @@
 const passport = require("passport");
-const User = require(".././user");
+const User = require("../services/database/user");
 const bcrypt = require("bcryptjs");
 
 module.exports.user_login = function (req, res, next) {
@@ -35,4 +35,18 @@ module.exports.user_register = function (req, res) {
 module.exports.logout = function(req, res) {
     req.logout();
     res.redirect('login');
+}
+
+module.exports.checkAuthenticated = function checkAuthenticated(req, res, next) {
+    if(req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('login');
+}
+
+module.exports.checkNotAuthenticated = function checkNotAuthenticated(req, res, next) {
+    if(req.isAuthenticated()) {
+        return res.redirect('/');
+    }
+    next();
 }

@@ -1,9 +1,8 @@
-const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 
-require('./services/database')
+require('./services/database/db-config')
 
 // Middleware
 

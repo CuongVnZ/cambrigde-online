@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import Axios from "axios";
 
@@ -46,36 +47,39 @@ function App() {
   
   return (
     <div className="App">
-      <div>
-        <h1>Register</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setRegisterUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          onChange={(e) => setRegisterPassword(e.target.value)}
-        />
-        <button onClick={register}>Submit</button>
-      </div>
+      <Navbar />
+      <div className="test">
+        <div>
+          <h1>Register</h1>
+          <input
+            placeholder="username"
+            onChange={(e) => setRegisterUsername(e.target.value)}
+          />
+          <input
+            placeholder="password"
+            onChange={(e) => setRegisterPassword(e.target.value)}
+          />
+          <button onClick={register}>Submit</button>
+        </div>
 
-      <div>
-        <h1>Login</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        />
-        <button onClick={login}>Submit</button>
-      </div>
+        <div>
+          <h1>Login</h1>
+          <input
+            placeholder="username"
+            onChange={(e) => setLoginUsername(e.target.value)}
+          />
+          <input
+            placeholder="password"
+            onChange={(e) => setLoginPassword(e.target.value)}
+          />
+          <button onClick={login}>Submit</button>
+        </div>
 
-      <div>
-        <h1>Get User</h1>
-        <button onClick={getUser}>Submit</button>
-        {data ? <h1>Welcome Back {data.username}</h1> : null}
+        <div>
+          <h1>Get User</h1>
+          <button onClick={getUser}>Submit</button>
+          {data ? <h1>Welcome Back {data.username}</h1> : null}
+        </div>
       </div>
     </div>
   );
