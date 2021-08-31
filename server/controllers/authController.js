@@ -32,9 +32,9 @@ module.exports.user_register = function (req, res) {
     });
 }
 
-module.exports.logout = function(req, res) {
+module.exports.user_logout = function(req, res) {
     req.logout();
-    res.redirect('login');
+    res.send("Successfully logged out");
 }
 
 module.exports.checkAuthenticated = function checkAuthenticated(req, res, next) {

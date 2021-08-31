@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import { MenuItems } from './MenuItems';
-import { Button } from '../Button';
-import './Navbar.css';
+import '../../css/Navbar.css';
+
+import LoginModal from "../LoginModal";
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -12,24 +15,26 @@ class Navbar extends Component {
 
     render() {
         return(
-            <nav className="NavbarItems">
+            
+            <div>
+                <nav className="NavbarItems">
                 <h1 className="navbar-logo">React<i className="fab fa-react"></i></h1>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
-                <ul className={this.state.clicked ? 'nav-menu active' : ' nav-menu'}>
+                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, idx) => {
                         return (
                             <li key={idx}>
-                                <a className={item.cName} href={item.url}>
-                                    {item.title}
-                                </a>
+                                <Link className={item.cName} to={item.url}>{item.title}</Link>
                             </li>
                         )
                     })}
                 </ul>
-                <Button>Sign Up</Button>
-            </nav>
+                <LoginModal />
+                </nav>
+            </div>
+            
         )
     }
 }

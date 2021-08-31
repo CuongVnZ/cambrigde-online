@@ -11,7 +11,7 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 router.use(
   cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -31,5 +31,6 @@ require("../services/passport-config")(passport);
 
 router.post("/login", authCon.user_login);
 router.post("/register", authCon.user_register);
+router.get("/logout", authCon.user_logout)
 
 module.exports = router;
