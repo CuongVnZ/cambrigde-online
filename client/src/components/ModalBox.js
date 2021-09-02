@@ -3,7 +3,7 @@ import '../css/LoginModal.css'
 import Axios from "axios";
 import { Button } from './Button';
 
-class LoginModal extends Component{  
+class ModalBox extends Component{  
     // const [registerUsername, setRegisterUsername] = useState("");
     // const [registerPassword, setRegisterPassword] = useState("");
     // const [loginUsername, setLoginUsername] = useState("");
@@ -75,42 +75,42 @@ class LoginModal extends Component{
                 <div className={this.state.clicked ? 'login-modal active' : 'login-modal'}>
                     <div className="modal-content">
                         <span className="close" onClick={this.handleClick}>&times;</span>
-                        <div>
-                            <h1>Register</h1>
-                            <input
-                                placeholder="username"
-                                onChange={(e) => this.setState({ registerUsername: e.target.value })}
-                            />
-                            <input
-                                placeholder="password"
-                                onChange={(e) => this.setState({ registerPassword: e.target.value })}
-                            />
-                            <button onClick={this.register}>Submit</button>
+                            <div>
+                                <h1>Register</h1>
+                                <input
+                                    placeholder="username"
+                                    onChange={(e) => this.setState({ registerUsername: e.target.value })}
+                                />
+                                <input
+                                    placeholder="password"
+                                    onChange={(e) => this.setState({ registerPassword: e.target.value })}
+                                />
+                                <button onClick={this.register}>Submit</button>
                             </div>
                     
                             <div>
-                            <h1>Login</h1>
-                            <input
-                                placeholder="username"
-                                onChange={(e) => this.setState({ loginUsername: e.target.value })}
-                            />
-                            <input
-                                placeholder="password"
-                                onChange={(e) => this.setState({ loginPassword: e.target.value })}
-                            />
-                            <button onClick={this.login}>Submit</button>
+                                <h1>Login</h1>
+                                <input
+                                    placeholder="username"
+                                    onChange={(e) => this.setState({ loginUsername: e.target.value })}
+                                />
+                                <input
+                                    placeholder="password"
+                                    onChange={(e) => this.setState({ loginPassword: e.target.value })}
+                                />
+                                <button onClick={this.login}>Submit</button>
                             </div>
                     
                             <div>
-                            <h1>Get User</h1>
-                            <button onClick={this.getUser}>Submit</button>
-                            {
-                                this.state.data ? 
-                                <h1>Welcome Back {this.state.data.username}</h1> 
-                                : null
-                            }
-                            <button onClick={this.logOut}>Logout</button>
-                        </div>
+                                <h1>Get User</h1>
+                                <button onClick={this.getUser}>Submit</button>
+                                {
+                                    this.state.data ? 
+                                    <h1>Welcome Back {this.state.data.username}</h1> 
+                                    : null
+                                }
+                                <button onClick={this.logOut}>Logout</button>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -118,4 +118,4 @@ class LoginModal extends Component{
     }
 }
 
-export default LoginModal;
+export default ModalBox;

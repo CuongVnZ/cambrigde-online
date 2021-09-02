@@ -22,7 +22,7 @@ class Login extends Component{
 
     render(){
         return(
-            <div>
+            <div align="center">
             <h1>Login</h1>
             <input
                 placeholder="username"

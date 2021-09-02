@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { MenuItems } from './MenuItems';
 import '../../css/Navbar.css';
 
-import LoginModal from "../LoginModal";
+import ModalBox from "../ModalBox";
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -31,7 +31,7 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <LoginModal />
+                <ModalBox />
                 </nav>
             </div>
             

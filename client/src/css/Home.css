@@ -1,0 +1,10 @@
+.home {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 0;
+  height: 100%;
+}
+
+.home p {
+  text-align: center;
+}

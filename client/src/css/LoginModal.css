@@ -19,11 +19,11 @@
   
   /* Modal Content */
   .modal-content {
-    background-color: #fefefe;
+    background-color: #312f2fa1;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 30%;
   }
   
   /* The Close Button */
